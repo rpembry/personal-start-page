@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple personal start page for frequently used links.">
+    <title>Start Page</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --background: #0a0f1d;
+        --panel: rgba(20, 29, 51, 0.76);
+        --panel-hover: rgba(31, 44, 75, 0.9);
+        --text: #f7f9ff;
+        --muted: #a8b2ca;
+        --accent: #74a7ff;
+        --border: rgba(255, 255, 255, 0.1);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        padding: 48px 20px;
+        display: grid;
+        place-items: center;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 12% 18%, rgba(47, 91, 173, 0.35), transparent 34%),
+          radial-gradient(circle at 85% 80%, rgba(90, 55, 150, 0.3), transparent 32%),
+          var(--background);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      main {
+        width: min(920px, 100%);
+      }
+
+      header {
+        margin-bottom: 34px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--accent);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.3rem, 7vw, 4.8rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .subtitle {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+
+      .google-link {
+        margin-bottom: 28px;
+        padding: 24px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        color: var(--text);
+        text-decoration: none;
+        border: 1px solid rgba(116, 167, 255, 0.38);
+        border-radius: 22px;
+        background: linear-gradient(135deg, rgba(34, 66, 122, 0.96), rgba(48, 33, 91, 0.94));
+        box-shadow: var(--shadow);
+        transition: transform 160ms ease, border-color 160ms ease;
+      }
+
+      .google-link:hover,
+      .google-link:focus-visible {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+      }
+
+      .google-link strong {
+        display: block;
+        font-size: clamp(1.45rem, 4vw, 2.2rem);
+      }
+
+      .google-link span {
+        display: block;
+        margin-top: 5px;
+        color: #c9d8f5;
+      }
+
+      .arrow {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      h2 {
+        margin: 0 0 14px;
+        font-size: 0.82rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .card {
+        min-height: 130px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: var(--text);
+        text-decoration: none;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      }
+
+      .card:hover,
+      .card:focus-visible {
+        transform: translateY(-3px);
+        border-color: rgba(116, 167, 255, 0.52);
+        background: var(--panel-hover);
+      }
+
+      .initials {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        color: #dce8ff;
+        border-radius: 11px;
+        background: rgba(116, 167, 255, 0.16);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+      }
+
+      .card strong {
+        font-size: 1.05rem;
+      }
+
+      footer {
+        margin-top: 28px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        text-align: center;
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      @media (max-width: 680px) {
+        body {
+          padding: 32px 16px;
+        }
+
+        .links {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 430px) {
+        .links {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Personal dashboard</p>
+        <h1>Good to see you.</h1>
+        <p class="subtitle">Everything important, one click away.</p>
+      </header>
+
+      <a class="google-link" href="https://www.google.com/">
+        <span>
+          <strong>Open Google</strong>
+          <span>Search the web</span>
+        </span>
+        <span class="arrow" aria-hidden="true">&rarr;</span>
+      </a>
+
+      <section aria-labelledby="frequent-links">
+        <h2 id="frequent-links">Frequent links</h2>
+        <div class="links">
+          <a class="card" href="https://github.com/">
+            <span class="initials">GH</span>
+            <strong>GitHub</strong>
+          </a>
+          <a class="card" href="https://chatgpt.com/">
+            <span class="initials">AI</span>
+            <strong>ChatGPT</strong>
+          </a>
+          <a class="card" href="https://app.slack.com/">
+            <span class="initials">SL</span>
+            <strong>Slack</strong>
+          </a>
+          <a class="card" href="https://outlook.office.com/mail/">
+            <span class="initials">OL</span>
+            <strong>Outlook</strong>
+          </a>
+          <a class="card" href="https://teams.microsoft.com/">
+            <span class="initials">TM</span>
+            <strong>Teams</strong>
+          </a>
+          <a class="card" href="https://drive.google.com/">
+            <span class="initials">DR</span>
+            <strong>Google Drive</strong>
+          </a>
+          <a class="card" href="https://calendar.google.com/">
+            <span class="initials">CA</span>
+            <strong>Google Calendar</strong>
+          </a>
+          <a class="card" href="https://www.youtube.com/">
+            <span class="initials">YT</span>
+            <strong>YouTube</strong>
+          </a>
+          <a class="card" href="https://maps.google.com/">
+            <span class="initials">MP</span>
+            <strong>Google Maps</strong>
+          </a>
+        </div>
+      </section>
+
+      <footer>Set this page as your browser home page for quick access.</footer>
+    </main>
+  </body>
+</html>
