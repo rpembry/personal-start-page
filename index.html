@@ -111,6 +111,10 @@
         text-transform: uppercase;
       }
 
+      section + section {
+        margin-top: 32px;
+      }
+
       .links {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -246,6 +250,28 @@
           <a class="card" href="https://maps.google.com/">
             <span class="initials">MP</span>
             <strong>Google Maps</strong>
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="bookmarked-links">
+        <h2 id="bookmarked-links">Bookmarks</h2>
+        <div class="links">
+          <a class="card" href="https://www.keybr.com/">
+            <span class="initials">KB</span>
+            <strong>Keybr Practice</strong>
+          </a>
+          <a class="card" href="https://launcher.keychron.com/">
+            <span class="initials">KL</span>
+            <strong>Keychron Launcher</strong>
+          </a>
+          <a class="card" href="https://www.keychron.com/pages/keychron-k10-max-user-guide">
+            <span class="initials">K10</span>
+            <strong>K10 Max Guide</strong>
+          </a>
+          <a class="card" href="https://www.bennish.net/web-notifications.html">
+            <span class="initials">NT</span>
+            <strong>Notifications Test</strong>
           </a>
         </div>
       </section>
