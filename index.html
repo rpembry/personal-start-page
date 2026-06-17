@@ -66,8 +66,14 @@
         font-size: 1.05rem;
       }
 
-      .google-link {
+      .hero-links {
         margin-bottom: 28px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .google-link {
         padding: 24px 28px;
         display: flex;
         align-items: center;
@@ -177,6 +183,10 @@
           padding: 32px 16px;
         }
 
+        .hero-links {
+          grid-template-columns: 1fr;
+        }
+
         .links {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
@@ -204,13 +214,22 @@
         <p class="subtitle">Everything important, one click away.</p>
       </header>
 
-      <a class="google-link" href="https://www.google.com/">
-        <span>
-          <strong>Open Google</strong>
-          <span>Search the web</span>
-        </span>
-        <span class="arrow" aria-hidden="true">&rarr;</span>
-      </a>
+      <div class="hero-links">
+        <a class="google-link" href="https://messages.google.com/web">
+          <span>
+            <strong>Messages</strong>
+            <span>Send and receive Android texts</span>
+          </span>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="google-link" href="https://www.google.com/">
+          <span>
+            <strong>Open Google</strong>
+            <span>Search the web</span>
+          </span>
+          <span class="arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
 
       <section aria-labelledby="frequent-links">
         <h2 id="frequent-links">Frequent links</h2>
