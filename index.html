@@ -375,5 +375,27 @@
 
       <footer>Set this page as your browser home page for quick access.</footer>
     </main>
-  </body>
+  <script src="bookmarks.js"></script>
+<script>
+(function(){
+ const data=window.START_BOOKMARKS;
+ if(!data||!Array.isArray(data.bookmarks))return;
+ const main=document.querySelector('main');
+ document.querySelectorAll('main > section').forEach(x=>x.remove());
+ document.querySelector('.hero-links')?.remove();
+ const groups=[...new Set(data.bookmarks.map(x=>x.category))];
+ for(const group of groups){
+  const section=document.createElement('section');const heading=document.createElement('h2');heading.textContent=group;section.append(heading);
+  const grid=document.createElement('div');grid.className='links';
+  for(const b of data.bookmarks.filter(x=>x.category===group)){
+   if(!/^https?:\/\//.test(b.url))continue;
+   const a=document.createElement('a');a.className='card';a.href=b.url;
+   const badge=document.createElement('span');badge.className='initials';badge.textContent=b.title.split(' ').map(x=>x[0]).join('').slice(0,3).toUpperCase();
+   const strong=document.createElement('strong');strong.textContent=b.title;a.append(badge,strong);grid.append(a);
+  }
+  section.append(grid);main.append(section);
+ }
+})();
+</script>
+</body>
 </html>
