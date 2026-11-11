@@ -328,6 +328,14 @@
       "audience": "staff",
       "sortOrder": 40,
       "source": "personal-start-page"
+    },
+    {
+      "title": "WellSky Personal Care (Production)",
+      "url": "https://elitepersonalcare.clearcareonline.com/",
+      "category": "ALE sites",
+      "audience": "personal",
+      "sortOrder": 41,
+      "source": "personal-start-page"
     }
   ]
 }
